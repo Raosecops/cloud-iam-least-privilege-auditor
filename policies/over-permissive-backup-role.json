@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DangerousBackupAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "FlawedPrivilegeEscalation",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole",
+                "iam:CreatePolicyVersion"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

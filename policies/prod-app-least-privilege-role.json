@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "LeastPrivilegeAppBackupStorage",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::prod-app-backups-bucket",
+                "arn:aws:s3:::prod-app-backups-bucket/*"
+            ]
+        },
+        {
+            "Sid": "LeastPrivilegeAppLogging",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:log-group:/aws/app/prod-backup-service:*"
+        }
+    ]
+}
